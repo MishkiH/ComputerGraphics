@@ -1,3 +1,0 @@
-"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\tinyrenderer.dir/objects.a
-C:\msys64\ucrt64\bin\ar.exe qc CMakeFiles\tinyrenderer.dir/objects.a @CMakeFiles\tinyrenderer.dir\objects1.rsp
-C:\msys64\ucrt64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\tinyrenderer.dir/objects.a -Wl,--no-whole-archive -o tinyrenderer.exe -Wl,--out-implib,libtinyrenderer.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\tinyrenderer.dir\linkLibs.rsp

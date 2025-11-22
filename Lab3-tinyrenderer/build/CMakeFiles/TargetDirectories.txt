@@ -1,3 +1,0 @@
-C:/Users/Meowbook/Desktop/CGraphics/tinyrenderer/build/CMakeFiles/tinyrenderer.dir
-C:/Users/Meowbook/Desktop/CGraphics/tinyrenderer/build/CMakeFiles/edit_cache.dir
-C:/Users/Meowbook/Desktop/CGraphics/tinyrenderer/build/CMakeFiles/rebuild_cache.dir
