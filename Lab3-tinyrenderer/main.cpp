@@ -7,6 +7,7 @@
 #include "model.h"
 #include "camera.h"
 #include "geometry.h"
+#include "tank.h"
 
 Model *model = NULL;
 const int width  = 1000;
@@ -155,12 +156,12 @@ int main() {
 
         Vec3f n = (world_coords[2]-world_coords[0])^(world_coords[1]-world_coords[0]);
         n.normalize();
-        float intensity = n*light_dir;
+        float intensity = n*light_dir; // cos угла между ними
 
-        if (intensity>0) {
-            triangle(screen_coords, uv_coords, zbuffer, image, intensity);
-        }
+        if (intensity>0) triangle(screen_coords, uv_coords, zbuffer, image, intensity);
     }
+
+    render_tank(image);
 
     image.flip_vertically(); 
     image.write_tga_file("output.tga");
