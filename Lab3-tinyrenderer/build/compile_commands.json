@@ -1,0 +1,20 @@
+[
+{
+  "directory": "C:/Users/Meowbook/Desktop/CGraphics/tinyrenderer/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -std=gnu++17 -Wall -Wextra -O2 -o CMakeFiles\\tinyrenderer.dir\\main.cpp.obj -c C:\\Users\\Meowbook\\Desktop\\CGraphics\\tinyrenderer\\main.cpp",
+  "file": "C:/Users/Meowbook/Desktop/CGraphics/tinyrenderer/main.cpp",
+  "output": "CMakeFiles/tinyrenderer.dir/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/Meowbook/Desktop/CGraphics/tinyrenderer/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -std=gnu++17 -Wall -Wextra -O2 -o CMakeFiles\\tinyrenderer.dir\\model.cpp.obj -c C:\\Users\\Meowbook\\Desktop\\CGraphics\\tinyrenderer\\model.cpp",
+  "file": "C:/Users/Meowbook/Desktop/CGraphics/tinyrenderer/model.cpp",
+  "output": "CMakeFiles/tinyrenderer.dir/model.cpp.obj"
+},
+{
+  "directory": "C:/Users/Meowbook/Desktop/CGraphics/tinyrenderer/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -std=gnu++17 -Wall -Wextra -O2 -o CMakeFiles\\tinyrenderer.dir\\tgaimage.cpp.obj -c C:\\Users\\Meowbook\\Desktop\\CGraphics\\tinyrenderer\\tgaimage.cpp",
+  "file": "C:/Users/Meowbook/Desktop/CGraphics/tinyrenderer/tgaimage.cpp",
+  "output": "CMakeFiles/tinyrenderer.dir/tgaimage.cpp.obj"
+}
+]
