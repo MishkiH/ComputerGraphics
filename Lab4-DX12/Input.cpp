@@ -1,25 +1,17 @@
 #include "Input.h"
 #include <cstring>
 
-void Input::Reset()
-{
+void Input::Reset() {
     std::memset(m_keys, 0, sizeof(m_keys));
     m_mouseX = 0;
     m_mouseY = 0;
 }
 
-void Input::OnKeyDown(uint32_t vk)
-{
-    if (vk < 256) m_keys[vk] = true;
-}
+void Input::OnKeyDown(uint32_t vk) { if (vk < 256) m_keys[vk] = true; }
 
-void Input::OnKeyUp(uint32_t vk)
-{
-    if (vk < 256) m_keys[vk] = false;
-}
+void Input::OnKeyUp(uint32_t vk) { if (vk < 256) m_keys[vk] = false; }
 
-void Input::OnMouseMove(int x, int y)
-{
+void Input::OnMouseMove(int x, int y) {
     m_mouseX = x;
     m_mouseY = y;
 }

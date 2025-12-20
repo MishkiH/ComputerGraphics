@@ -15,27 +15,17 @@ bool Window::Create(App* app, HINSTANCE hInstance, int nCmdShow, int width, int 
     wc.hbrBackground = (HBRUSH)GetStockObject(BLACK_BRUSH);
     wc.lpszClassName = className;
 
-    if (!RegisterClassExW(&wc))
-        return false;
+    if (!RegisterClassExW(&wc)) return false;
 
     RECT rc{ 0, 0, width, height };
     AdjustWindowRect(&rc, WS_OVERLAPPEDWINDOW, FALSE);
 
     m_hwnd = CreateWindowExW(
-        0,
-        className,
-        title,
-        WS_OVERLAPPEDWINDOW,
-        CW_USEDEFAULT, CW_USEDEFAULT,
-        rc.right - rc.left,
-        rc.bottom - rc.top,
-        nullptr, nullptr,
-        hInstance,
-        app
+        0, className, title, WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT,
+        rc.right-rc.left, rc.bottom-rc.top, nullptr, nullptr, hInstance, app
     );
 
-    if (!m_hwnd)
-        return false;
+    if (!m_hwnd) return false;
 
     ShowWindow(m_hwnd, nCmdShow);
     UpdateWindow(m_hwnd);
