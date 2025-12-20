@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-add_executable(dx12_part12
+add_executable(dx12_part123
     main.cpp
     App.cpp
     Window.cpp
@@ -13,11 +13,11 @@ add_executable(dx12_part12
     D3D12Context.cpp
 )
 
-target_compile_definitions(dx12_part12 PRIVATE UNICODE _UNICODE WIN32_LEAN_AND_MEAN NOMINMAX)
+target_compile_definitions(dx12_part123 PRIVATE UNICODE _UNICODE WIN32_LEAN_AND_MEAN NOMINMAX)
 
-set_target_properties(dx12_part12 PROPERTIES WIN32_EXECUTABLE TRUE)
+set_target_properties(dx12_part123 PROPERTIES WIN32_EXECUTABLE TRUE)
 
-target_link_libraries(dx12_part12 PRIVATE
+target_link_libraries(dx12_part123 PRIVATE
     user32 gdi32
     dxgi d3d12
 )
