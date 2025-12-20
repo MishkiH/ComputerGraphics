@@ -95,7 +95,7 @@ void App::Update(float dt)
         RECT rc{};
         GetClientRect(hwnd, &rc);
 
-        POINT centerClient{ (rc.right - rc.left) / 2, (rc.bottom - rc.top) / 2 };
+        POINT centerClient{ (rc.right-rc.left)/2, (rc.bottom-rc.top)/2 };
         POINT centerScreen = centerClient;
         ClientToScreen(hwnd, &centerScreen);
 
@@ -109,8 +109,8 @@ void App::Update(float dt)
         POINT curScreen{};
         GetCursorPos(&curScreen);
 
-        const int dx = curScreen.x - centerScreen.x;
-        const int dy = curScreen.y - centerScreen.y;
+        const int dx = curScreen.x-centerScreen.x;
+        const int dy = curScreen.y-centerScreen.y;
 
         const float mouseSens = 0.005f;
         m_camYaw += dx * mouseSens;

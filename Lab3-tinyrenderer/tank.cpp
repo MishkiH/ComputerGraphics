@@ -6,7 +6,7 @@ const int STEPS = 60;
 const float MAX_DIST = 15.0f;
 const float SURF_DIST = 0.02f;
 
-static float sdBox(const Vec3f &p, const Vec3f &b) {
+float sdBox(const Vec3f &p, const Vec3f &b) {
     Vec3f q(std::fabs(p.x), std::fabs(p.y), std::fabs(p.z));
     q = q-b;
     float dx = std::max(q.x, 0.0f);
@@ -18,7 +18,7 @@ static float sdBox(const Vec3f &p, const Vec3f &b) {
     return outside+inside;
 }
 
-static float mapTank(Vec3f p) {
+float mapTank(Vec3f p) {
     float x = -p.z;
     float y = p.y;
     float z = p.x;
@@ -32,7 +32,7 @@ static float mapTank(Vec3f p) {
     return d;
 }
 
-static Vec3f tankNormal(Vec3f p) {
+Vec3f tankNormal(Vec3f p) {
     const float e = 0.01f;
     float dx = mapTank(Vec3f(p.x + e, p.y, p.z)) - mapTank(Vec3f(p.x-e, p.y, p.z));
     float dy = mapTank(Vec3f(p.x, p.y + e, p.z)) - mapTank(Vec3f(p.x, p.y-e, p.z));
@@ -41,7 +41,7 @@ static Vec3f tankNormal(Vec3f p) {
     return n.normalize();
 }
 
-static bool raymarchTank(const Vec3f &cameraPos, const Vec3f &rayDir, float &tHit) {
+bool raymarchTank(const Vec3f &cameraPos, const Vec3f &rayDir, float &tHit) {
     float rayDistance = 0;
     for (int i = 0; i < STEPS; i++) {
         Vec3f p = cameraPos + rayDir*rayDistance;
