@@ -7,6 +7,8 @@
 #include <d3dcompiler.h>
 #include <DirectXMath.h>
 #include <cstdint>
+#include <vector>
+#include <string>
 
 class D3D12Context
 {
@@ -17,6 +19,20 @@ public:
     void OnResize(uint32_t width, uint32_t height);
     void Draw();
     void SetCamera(const DirectX::XMFLOAT3& eyePos, float yaw, float pitch);
+
+    struct Vertex
+    {
+        DirectX::XMFLOAT3 Pos;
+        DirectX::XMFLOAT3 Normal;
+        DirectX::XMFLOAT2 TexC;
+    };
+
+    struct DrawItem
+    {
+        uint32_t IndexCount = 0;
+        uint32_t StartIndexLocation = 0;
+        uint32_t TextureSrvIndex = 1;
+    };
 
 private:
     bool CreateDevice();
@@ -41,12 +57,6 @@ private:
 
 private:
     static constexpr uint32_t kSwapChainBufferCount = 2;
-
-    struct Vertex
-    {
-        DirectX::XMFLOAT3 Pos;
-        DirectX::XMFLOAT3 Normal;
-    };
 
     struct alignas(16) ObjectConstants
     {
@@ -90,8 +100,10 @@ private:
 
     uint32_t m_rtvDescriptorSize = 0;
     uint32_t m_dsvDescriptorSize = 0;
+    uint32_t m_cbvSrvUavDescriptorSize = 0;
 
     Microsoft::WRL::ComPtr<ID3D12Resource> m_depthStencilBuffer;
+    Microsoft::WRL::ComPtr<ID3D12Resource> m_diffuseTexture;
 
     D3D12_VIEWPORT m_viewport{};
     D3D12_RECT m_scissorRect{};
@@ -102,13 +114,16 @@ private:
     Microsoft::WRL::ComPtr<ID3DBlob> m_vsBytecode;
     Microsoft::WRL::ComPtr<ID3DBlob> m_psBytecode;
 
-    D3D12_INPUT_ELEMENT_DESC m_inputLayout[2]{};
+    D3D12_INPUT_ELEMENT_DESC m_inputLayout[3]{};
 
     Microsoft::WRL::ComPtr<ID3D12Resource> m_vertexBufferGPU;
     Microsoft::WRL::ComPtr<ID3D12Resource> m_indexBufferGPU;
     D3D12_VERTEX_BUFFER_VIEW m_vbv{};
     D3D12_INDEX_BUFFER_VIEW  m_ibv{};
     uint32_t m_indexCount = 0;
+
+    std::vector<Microsoft::WRL::ComPtr<ID3D12Resource>> m_textures;
+    std::vector<DrawItem> m_drawItems;
 
     Microsoft::WRL::ComPtr<ID3D12Resource> m_objectCB;
     uint8_t* m_mappedObjectCB = nullptr;
