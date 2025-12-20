@@ -14,6 +14,7 @@ add_executable(tinyrenderer
     main.cpp
     model.cpp
     tgaimage.cpp
+    tank.cpp
 )
 
 if(MSVC)
