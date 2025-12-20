@@ -206,8 +206,7 @@ LRESULT App::HandleWindowMessage(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lpar
 
         if (w == 0 || h == 0) return 0;
 
-        if (m_dx12) m_dx12->OnResize(w, h);
-        return 0;
+        if (m_dx12) m_dx12->OnResize(w, h); return 0;
     }
 
     default:
